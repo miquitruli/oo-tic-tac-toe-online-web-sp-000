@@ -51,10 +51,10 @@ class TicTacToe
   end
 
   def valid_move?(position)
-    if @board[position] == ' '
-      true
-    elsif position >=0 && position <=8
-      true
+    if position >=0 && position <=8
+      if @board[position] == ' '
+        true
+      end
     else
       false
     end
