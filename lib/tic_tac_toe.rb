@@ -79,7 +79,7 @@ class TicTacToe
       if win.all? do |combo|
         combo =='X' || combo 'O'
         win
-      end
+      else
         false
       end
     end
