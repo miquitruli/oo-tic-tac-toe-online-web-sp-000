@@ -73,4 +73,14 @@ class TicTacToe
       move = gets.chomp#ask for input
     end
   end
+
+  def won?
+    WIN_COMBINATIONS.each do |win|
+      if win.all == 'X' || 'O'
+        win
+      else
+        false
+      end
+    end
+  end
 end
