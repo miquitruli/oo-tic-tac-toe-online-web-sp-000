@@ -44,9 +44,9 @@ class TicTacToe
 
   def position_taken?(position)
     if position >= 0 && position
-      true
-    elsif @board[position] == ' '
-      true
+      if @board[position] == ' '
+        true
+      end
     else
       false
     end
