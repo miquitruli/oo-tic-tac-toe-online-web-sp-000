@@ -43,10 +43,8 @@ class TicTacToe
   end
 
   def position_taken?(position)
-    if position >= 0 && position
-      if @board[position] == ' '
-        true
-      end
+    if @board[position] == 'X' || @board[position] == 'O'
+      true
     else
       false
     end
@@ -55,8 +53,8 @@ class TicTacToe
   def valid_move?(position)
     if @board[position] == ' '
       true
-    elsif position_taken?(position) == true
-      false
+    elsif position >=0 && position <=8
+      true
     else
       false
     end
@@ -72,7 +70,6 @@ class TicTacToe
       display_board #  show the board
     else
       puts "Hello! Please make your move (1-9)" #ask for input
-      move = gets.chomp
     end
   end
 end
