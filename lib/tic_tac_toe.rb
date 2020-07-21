@@ -69,7 +69,8 @@ class TicTacToe
       move(index, token) #  make the move for index
       display_board #  show the board
     else
-      puts "Hello! Please make your move (1-9)" #ask for input
+      puts "Hello! Please make your move (1-9)"
+      move = gets.chomp#ask for input
     end
   end
 end
