@@ -86,4 +86,12 @@ class TicTacToe
       full=="X" || full=="O"
     end
   end
+
+  def draw?
+    if won? == false && full? == true
+      true
+    else
+      false
+    end
+  end
 end
