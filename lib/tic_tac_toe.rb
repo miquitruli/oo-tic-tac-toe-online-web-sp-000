@@ -51,10 +51,10 @@ class TicTacToe
   end
 
   def valid_move?(position)
-    if @board[position] == ' '
-      true
-    elsif position_taken?(position) == true
-      false
+    if position >=0 && position <=8
+      if @board[position] == ' '
+        true
+      end
     else
       false
     end
@@ -69,8 +69,59 @@ class TicTacToe
       move(index, token) #  make the move for index
       display_board #  show the board
     else
-      puts "Hello! Please make your move (1-9)" #ask for input
-      move = gets.chomp
+      puts "Hello! Please make your move (1-9)"
+      move = gets.chomp#ask for input
+    end
+  end
+
+  def won?
+    WIN_COMBINATIONS.find do |indices| #values_at returns the values for the corresponding indices (* transforms the indices array to a list of arguments, so values_at(*[0,1,2]) becomes values_at(0,1,2)).
+      values = @board.values_at(*indices)
+      values.all?('X') || values.all?('O')#The block's 2nd line then checks whether these values are all 'X', or all 'O'. Once this evaluates to true, the loop breaks and find returns the matching element. (or nil if there was no match)
+    end
+  end
+
+  def full?
+    @board.all? do |full|
+      full=="X" || full=="O"
+    end
+  end
+
+  def draw?
+    if full? && !won?
+      true
+    elsif won? == true
+      false
+    else
+      false
+    end
+  end
+
+  def over?
+    if won? || draw?
+      true
+    else
+      false
+    end
+  end
+
+  def winner
+    won = won?
+    if won != nil
+      return @board[won[0]]
+    end
+  end
+
+  def play
+    until over? == true
+      turn
+    end
+    if won?
+      puts "Congratulations #{winner}!" #congratulate the winner
+    elsif draw?
+      puts "Cat's Game!"
+    else
+      false
     end
   end
 end
