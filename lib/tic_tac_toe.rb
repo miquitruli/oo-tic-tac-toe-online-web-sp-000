@@ -91,7 +91,7 @@ class TicTacToe
     if won? == false && full? == true
       return true
     else
-      false
+      return false
     end
   end
 end
