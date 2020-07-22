@@ -75,9 +75,15 @@ class TicTacToe
   end
 
   def won?
-    WIN_COMBINATIONS.find do |indices|
+    WIN_COMBINATIONS.find do |indices| #values_at returns the values for the corresponding indices (* transforms the indices array to a list of arguments, so values_at(*[0,1,2]) becomes values_at(0,1,2)).
       values = @board.values_at(*indices)
-      values.all?('X') || values.all?('O')
+      values.all?('X') || values.all?('O')#The block's 2nd line then checks whether these values are all 'X', or all 'O'. Once this evaluates to true, the loop breaks and find returns the matching element. (or nil if there was no match)
+    end
+  end
+
+  def full?
+    @board.all? do |full|
+      full=="X" || full=="O"
     end
   end
 end
