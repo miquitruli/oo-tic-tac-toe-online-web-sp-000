@@ -93,8 +93,4 @@ class TicTacToe
     false
   end
 
-        end
-      end
-    end
-  end
 end
