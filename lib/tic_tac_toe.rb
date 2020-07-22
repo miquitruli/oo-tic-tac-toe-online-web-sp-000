@@ -120,6 +120,8 @@ class TicTacToe
       puts "Congratulations #{winner}!" #congratulate the winner
     elsif draw?
       puts "Cat's Game!"
+    else
+      false
     end
   end
 end
