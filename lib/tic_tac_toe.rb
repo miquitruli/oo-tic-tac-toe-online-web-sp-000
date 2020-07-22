@@ -75,16 +75,9 @@ class TicTacToe
   end
 
   def won?
-    WIN_COMBINATIONS.each do |combinations|
-      combinations.each do |combo|
-        if [combo[0] == "X" && combo[1] == "X" && combo[2] == "X"]
-          return combinations
-        elsif [combo[0] == "O" && combo[1] == "O" && combo[2] == "O"]
-          return combinations
-        else
-          false
-        end
-      end
+    WIN_COMBINATIONS.find do |indices|
+      values = @board.values_at(*indices)
+      values.all?('X') || values.all?('O')
     end
   end
 end
