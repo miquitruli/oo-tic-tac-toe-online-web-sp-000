@@ -78,9 +78,9 @@ class TicTacToe
     WIN_COMBINATIONS.each do |combinations|
       combinations.each do |combo|
         if [combo[0] == "X" && combo[1] == "X" && combo[2] == "X"]
-          return combo.to_array
+          return combinations
         elsif [combo[0] == "O" && combo[1] == "O" && combo[2] == "O"]
-          return combo.to_array
+          return combinations
         else
           false
         end
